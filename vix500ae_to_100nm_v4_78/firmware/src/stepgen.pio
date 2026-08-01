@@ -1,0 +1,24 @@
+.program stepgen
+; One pulse consumes 33 PIO cycles. The host sets clkdiv so pulse rate is exact.
+; OSR receives pulse_count - 1.
+.wrap_target
+    pull block
+    mov x, osr
+pulse:
+    set pins, 1 [15]
+    set pins, 0 [15]
+    jmp x-- pulse
+    irq 0
+.wrap
+
+% c-sdk {
+static inline void stepgen_program_init(PIO pio, uint sm, uint offset, uint pin) {
+    pio_sm_config c = stepgen_program_get_default_config(offset);
+    sm_config_set_set_pins(&c, pin, 1);
+    pio_gpio_init(pio, pin);
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_pins_with_mask(pio, sm, 0u, 1u << pin);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}
