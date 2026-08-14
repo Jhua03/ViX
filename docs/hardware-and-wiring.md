@@ -2,7 +2,7 @@
 
 ## 1. System architecture
 
-![System overview](images/system_overview.svg)
+![System overview](images/system_overview2.png)
 
 There are **two independent USB paths** from the host computer:
 
