@@ -12,7 +12,7 @@ This repository targets the **AH family only**. It is intended to work with both
 
 > **Safety:** a servo drive can move unexpectedly during setup, wiring mistakes, or controller development. Commission near the middle of travel, use a physical emergency stop, keep clear of moving hardware, and verify every input polarity before allowing motion. Do not copy the MX80L gains to a different motor/stage without validating them.
 
-![System overview](docs/images/system_overview.svg)
+![System overview](docs/images/system_overview2.png)
 
 ## Start here
 
