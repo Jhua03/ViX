@@ -39,7 +39,7 @@ The ViX X4 connector provides the signals needed by this project when the drive 
 
 See the exact [X4 pin table](../hardware/connector-pinouts.md#vix-x4---stepdir-encoder-copy-fault-and-energise).
 
-![X4 interface](images/x4_interface.svg)
+![X4 interface](images/x4_interface2.png)
 
 ## 3. Why line-interface ICs are used
 
