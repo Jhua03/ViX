@@ -20,7 +20,6 @@ Therefore:
 | 300 nm | 30 |
 | 100 nm | 10 |
 
-A previous long-form line that described 50 counts as 1 µm was a documentation error; 50 counts is **500 nm** at this scale.
 
 ## Example servo profile
 
@@ -45,15 +44,6 @@ The simple CLI exposes this as:
 --profile mx80l-10nm
 ```
 
-## Current measured interpretation
-
-The original work targeted approximately **1 µm-class production positioning**. Sub-micron commands were characterized experimentally. The later v4.77/v4.78 commissioning notes identified **400 nm (40 counts)** as the strongest repeatable small-movement threshold at that point and then tested whether conservative changes could push lower.
-
-That means:
-
-- the 10 nm encoder count size is **measurement resolution**, not proof of 10 nm mechanical positioning accuracy;
-- a 100 nm command is representable digitally as 10 counts but was **not established as a reliable production move**;
-- small-command behavior was consistent with mechanical breakaway/stiction/deadband being important, rather than simply a need for more bus voltage/current.
 
 ## Firmware encoder sign
 

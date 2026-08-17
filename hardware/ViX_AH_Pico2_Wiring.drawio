@@ -1,43 +1,110 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2026-08-12T23:00:00.000Z" agent="ChatGPT" version="24.7.17" type="device" compressed="false">
+<mxfile host="Electron" agent="ChatGPT" compressed="false" pages="3">
   <diagram id="system" name="1 - System architecture">
-    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
-      <root><mxCell id="0"/><mxCell id="1" parent="0"/>
-        <mxCell id="t" value="ViX250AH / ViX500AH + Pico 2 architecture" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="900" height="40" as="geometry"/></mxCell>
-        <mxCell id="host" value="&lt;b&gt;Any USB host computer&lt;/b&gt;&lt;br&gt;Raspberry Pi 5 / laptop / desktop&lt;br&gt;Python + pyserial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1"><mxGeometry x="70" y="160" width="300" height="150" as="geometry"/></mxCell>
-        <mxCell id="usb" value="&lt;b&gt;USB to RS-232 adapter&lt;/b&gt;&lt;br&gt;True RS-232 levels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1"><mxGeometry x="500" y="110" width="280" height="130" as="geometry"/></mxCell>
-        <mxCell id="vix" value="&lt;b&gt;Parker ViX250AH / ViX500AH&lt;/b&gt;&lt;br&gt;X3: RS-232&lt;br&gt;X4: STEP/DIR + encoder copy + fault/energise&lt;br&gt;X1/X2: Parker motor/power/feedback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1"><mxGeometry x="1030" y="100" width="400" height="230" as="geometry"/></mxCell>
-        <mxCell id="pico" value="&lt;b&gt;Raspberry Pi Pico 2&lt;/b&gt;&lt;br&gt;STEP/DIR generator&lt;br&gt;Encoder counter&lt;br&gt;Limits/home/fault/E-stop supervisor&lt;br&gt;750 ms host watchdog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1"><mxGeometry x="470" y="500" width="330" height="220" as="geometry"/></mxCell>
-        <mxCell id="if" value="&lt;b&gt;X4 interface&lt;/b&gt;&lt;br&gt;AM26LV31E driver&lt;br&gt;AM26LV32E receiver&lt;br&gt;2N3904 energise sink&lt;br&gt;fault pull-up" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1"><mxGeometry x="1030" y="500" width="350" height="210" as="geometry"/></mxCell>
-        <mxCell id="e1" value="USB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="host" target="usb"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="e2" value="special 3-wire DB9 cable to X3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="usb" target="vix"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="e3" value="USB CDC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="host" target="pico"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="e4" value="3.3 V GPIO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="pico" target="if"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="e5" value="differential X4 + fault/energise" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="if" target="vix"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxGraphModel dx="1395" dy="1051" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t" parent="1" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" value="ViX250AH / ViX500AH + Pico 2 architecture" vertex="1">
+          <mxGeometry height="40" width="900" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="host" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" value="&lt;b&gt;Any USB host computer&lt;/b&gt;&lt;br&gt;Raspberry Pi 5 / laptop / desktop&lt;br&gt;Python + pyserial" vertex="1">
+          <mxGeometry height="150" width="300" x="70" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="usb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" value="&lt;b&gt;USB to RS-232 adapter&lt;/b&gt;&lt;br&gt;True RS-232 levels" vertex="1">
+          <mxGeometry height="130" width="280" x="500" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="vix" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" value="&lt;b&gt;Parker ViX250AH / ViX500AH&lt;/b&gt;&lt;br&gt;X3: RS-232&lt;br&gt;X4: STEP/DIR + encoder copy + fault/energise&lt;br&gt;X1/X2: Parker motor/power/feedback" vertex="1">
+          <mxGeometry height="230" width="400" x="1030" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pico" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" value="&lt;b&gt;Raspberry Pi Pico 2&lt;/b&gt;&lt;br&gt;STEP/DIR generator&lt;br&gt;Encoder counter&lt;br&gt;Limits/home/fault/E-stop supervisor&lt;br&gt;750 ms host watchdog" vertex="1">
+          <mxGeometry height="220" width="330" x="470" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="if" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" value="&lt;b&gt;X4 interface&lt;/b&gt;&lt;br&gt;AM26LV31E driver&lt;br&gt;AM26LV32E receiver&lt;br&gt;2N3904 energise sink&lt;br&gt;fault pull-up" vertex="1">
+          <mxGeometry height="210" width="350" x="1030" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="host" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="usb" value="USB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="usb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="vix" value="special 3-wire DB9 cable to X3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="host" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="pico" value="USB Serial">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="635" y="280.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="pico" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="if" value="3.3 V GPIO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="if" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="vix" value="differential X4 + fault/energise">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="x3" name="2 - X3 serial cable">
-    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
-      <mxCell id="t2" value="X3 special RS-232 cable - not straight-through" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="1000" height="40" as="geometry"/></mxCell>
-      <mxCell id="a" value="&lt;b&gt;USB-RS232 adapter / PC DTE side&lt;/b&gt;&lt;br&gt;DB9 female breakout for a typical male adapter&lt;br&gt;2 RX&lt;br&gt;3 TX&lt;br&gt;5 GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1"><mxGeometry x="90" y="180" width="360" height="230" as="geometry"/></mxCell>
-      <mxCell id="b" value="&lt;b&gt;ViX X3&lt;/b&gt;&lt;br&gt;DB9 socket on drive; use male breakout&lt;br&gt;4 RX&lt;br&gt;5 TX&lt;br&gt;3 GND&lt;br&gt;&lt;b&gt;Do not connect X3 2, 8 or 9&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1"><mxGeometry x="1050" y="180" width="360" height="250" as="geometry"/></mxCell>
-      <mxCell id="w1" value="TX 3 -> RX 4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="a" target="b"><mxGeometry relative="1" as="geometry"><mxPoint x="650" y="250" as="targetPoint"/></mxGeometry></mxCell>
-      <mxCell id="note" value="Wire exactly:&lt;br&gt;&lt;b&gt;adapter 3 -> ViX 4&lt;/b&gt;&lt;br&gt;&lt;b&gt;adapter 2 -> ViX 5&lt;/b&gt;&lt;br&gt;&lt;b&gt;adapter 5 -> ViX 3&lt;/b&gt;&lt;br&gt;Shell/shield may be carried shell-to-shell." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" vertex="1" parent="1"><mxGeometry x="590" y="230" width="330" height="230" as="geometry"/></mxCell>
-    </root></mxGraphModel>
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t2" value="X3 special RS-232 cable - not straight-through" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a" value="&lt;b&gt;USB-RS232 adapter / PC DTE side&lt;/b&gt;&lt;br&gt;DB9 female breakout for a typical male adapter&lt;br&gt;2 RX&lt;br&gt;3 TX&lt;br&gt;5 GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="360" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="b" value="&lt;b&gt;ViX X3&lt;/b&gt;&lt;br&gt;DB9 socket on drive; use male breakout&lt;br&gt;4 RX&lt;br&gt;5 TX&lt;br&gt;3 GND&lt;br&gt;&lt;b&gt;Do not connect X3 2, 8 or 9&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="180" width="360" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="w1" value="TX 3 -&gt; RX 4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="a" target="b">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" value="Wire exactly:&lt;br&gt;&lt;b&gt;adapter 3 -&gt; ViX 4&lt;/b&gt;&lt;br&gt;&lt;b&gt;adapter 2 -&gt; ViX 5&lt;/b&gt;&lt;br&gt;&lt;b&gt;adapter 5 -&gt; ViX 3&lt;/b&gt;&lt;br&gt;Shell/shield may be carried shell-to-shell." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="590" y="230" width="330" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
   </diagram>
   <diagram id="x4" name="3 - X4 interface">
-    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
-      <mxCell id="t3" value="Pico 2 to ViX X4 interface" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="900" height="40" as="geometry"/></mxCell>
-      <mxCell id="p" value="&lt;b&gt;Pico 2&lt;/b&gt;&lt;br&gt;GP2 STEP&lt;br&gt;GP3 DIR&lt;br&gt;GP4/5/6 encoder&lt;br&gt;GP10 fault&lt;br&gt;GP11 enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1"><mxGeometry x="80" y="160" width="260" height="240" as="geometry"/></mxCell>
-      <mxCell id="d" value="&lt;b&gt;AM26LV31E @ 3.3 V&lt;/b&gt;&lt;br&gt;GP2 -> 1A -> 1Y/1Z -> STEP+/-&lt;br&gt;GP3 -> 2A -> 2Y/2Z -> DIR+/-&lt;br&gt;pin4=3V3, pin12=GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1"><mxGeometry x="500" y="120" width="390" height="220" as="geometry"/></mxCell>
-      <mxCell id="r" value="&lt;b&gt;AM26LV32E @ 3.3 V&lt;/b&gt;&lt;br&gt;A+/- -> pins2/1 -> pin3 -> GP4&lt;br&gt;B+/- -> pins6/7 -> pin5 -> GP5&lt;br&gt;Z+/- -> pins10/9 -> pin11 -> GP6&lt;br&gt;pin4=3V3, pin12=GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1"><mxGeometry x="500" y="430" width="390" height="250" as="geometry"/></mxCell>
-      <mxCell id="x4c" value="&lt;b&gt;ViX X4 HD15&lt;/b&gt;&lt;br&gt;12/7 STEP+/-&lt;br&gt;13/8 DIR+/-&lt;br&gt;14/9 A+/-&lt;br&gt;15/10 B+/-&lt;br&gt;5/4 Z+/-&lt;br&gt;6 fault&lt;br&gt;11 energise&lt;br&gt;3 0V" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1"><mxGeometry x="1120" y="170" width="300" height="390" as="geometry"/></mxCell>
-      <mxCell id="io" value="&lt;b&gt;Single-ended&lt;/b&gt;&lt;br&gt;X4-6 -> GP10 + 10k pull-up to 3V3&lt;br&gt;X4-11 -> 2N3904 collector&lt;br&gt;emitter -> X4-3/GND&lt;br&gt;GP11 -> 4.7k -> base&lt;br&gt;100k base-emitter" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1"><mxGeometry x="1030" y="620" width="390" height="210" as="geometry"/></mxCell>
-      <mxCell id="e31" value="STEP/DIR logic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="p" target="d"><mxGeometry relative="1" as="geometry"/></mxCell>
-      <mxCell id="e32" value="STEP+/- DIR+/-" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d" target="x4c"><mxGeometry relative="1" as="geometry"/></mxCell>
-      <mxCell id="e33" value="A/B/Z differential" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="x4c" target="r"><mxGeometry relative="1" as="geometry"/></mxCell>
-      <mxCell id="e34" value="encoder logic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="r" target="p"><mxGeometry relative="1" as="geometry"/></mxCell>
-    </root></mxGraphModel>
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t3" value="Pico 2 to ViX X4 interface" style="text;html=1;fontSize=24;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p" value="&lt;b&gt;Pico 2&lt;/b&gt;&lt;br&gt;GP2 STEP&lt;br&gt;GP3 DIR&lt;br&gt;GP4/5/6 encoder&lt;br&gt;GP10 fault&lt;br&gt;GP11 enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="260" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="d" value="&lt;b&gt;AM26LV31E @ 3.3 V&lt;/b&gt;&lt;br&gt;GP2 -&gt; 1A -&gt; 1Y/1Z -&gt; STEP+/-&lt;br&gt;GP3 -&gt; 2A -&gt; 2Y/2Z -&gt; DIR+/-&lt;br&gt;pin4=3V3, pin12=GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="500" y="120" width="390" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r" value="&lt;b&gt;AM26LV32E @ 3.3 V&lt;/b&gt;&lt;br&gt;A+/- -&gt; pins2/1 -&gt; pin3 -&gt; GP4&lt;br&gt;B+/- -&gt; pins6/7 -&gt; pin5 -&gt; GP5&lt;br&gt;Z+/- -&gt; pins10/9 -&gt; pin11 -&gt; GP6&lt;br&gt;pin4=3V3, pin12=GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="500" y="430" width="390" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="x4c" value="&lt;b&gt;ViX X4 HD15&lt;/b&gt;&lt;br&gt;12/7 STEP+/-&lt;br&gt;13/8 DIR+/-&lt;br&gt;14/9 A+/-&lt;br&gt;15/10 B+/-&lt;br&gt;5/4 Z+/-&lt;br&gt;6 fault&lt;br&gt;11 energise&lt;br&gt;3 0V" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="170" width="300" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="io" value="&lt;b&gt;Single-ended&lt;/b&gt;&lt;br&gt;X4-6 -&gt; GP10 + 10k pull-up to 3V3&lt;br&gt;X4-11 -&gt; 2N3904 collector&lt;br&gt;emitter -&gt; X4-3/GND&lt;br&gt;GP11 -&gt; 4.7k -&gt; base&lt;br&gt;100k base-emitter" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="620" width="390" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" value="STEP/DIR logic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="p" target="d">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" value="STEP+/- DIR+/-" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d" target="x4c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e33" value="A/B/Z differential" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="x4c" target="r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" value="encoder logic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="r" target="p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
   </diagram>
 </mxfile>
